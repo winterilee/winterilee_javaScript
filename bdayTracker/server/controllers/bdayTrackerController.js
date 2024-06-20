@@ -26,8 +26,8 @@ module.exports = {
     },
 
     deleteBday: (req, res) => {
-        BdayTracker.findByIdAndDelete(req.parms.id)
-            .then((result) => res.json({ result: result }))
+        BdayTracker.findByIdAndDelete(req.params.id)
+            .then((deletedBday) => res.json(deletedBday))
             .catch((err) => res.json(err));
     }
 };

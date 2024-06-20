@@ -5,7 +5,7 @@ const port = 8000;
 
 app.use(cors(), express.json(), express.urlencoded({ extended: true }));
 
-// require config mongoose
-// require routes
+require("./config/mongoose");
+require("./routes/bdayTrackerRoutes")(app);
 
 app.listen(port, () => console.log(`Server is up and running on port ${port}`));
