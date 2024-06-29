@@ -1,11 +1,13 @@
 import React from 'react';
+import {Routes, Route} from "react-router-dom";
+import Dashboard from '../components/Dashboard';
 
-const ComponentName = (props) => {
+const Main = (props) => {
     return(
-        <div>
-            <h1>Testing</h1>
-        </div>
+        <Routes>
+            <Route path={"/"} element={<Dashboard/>} />
+        </Routes>
     );
 }
 
-export default ComponentName;
+export default Main;

@@ -7,10 +7,10 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={"/bdayTracker/*"} element={<Main/>} />
+        <Route path={"/bdays/*"} element={<Main/>} />
       </Routes>
     </BrowserRouter>
   )
 }
 
-export default App
+export default App;
