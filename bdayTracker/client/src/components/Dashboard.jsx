@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-// import {Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 import axios from 'axios';
 
 const Dashboard = (props) => {
@@ -72,9 +72,9 @@ const Dashboard = (props) => {
                                 <td>{bday.firstName}</td>
                                 <td>{bday.lastName}</td>
                                 <td>{bday.bdayMonth}/{bday.bdayDay}</td>
-                                <td>{bday.isGifted}</td>
+                                <td>{bday.isGifted ? "Yes" : "No"}</td>
                                 <td>{bday.giftIdeas}</td>
-                                <td><button>Edit</button></td>
+                                <td><Link to={`/bdays/update/${bday._id}`}><button>Edit</button></Link></td>
                             </tr>
                         )
                     })
