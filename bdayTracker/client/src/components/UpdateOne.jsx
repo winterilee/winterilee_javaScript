@@ -38,6 +38,12 @@ const UpdateOne = (props) => {
             .catch((err) => console.log(err))
     };
 
+    const deleteBdayHandler = e => {
+        axios.delete(`http://localhost:8000/api/bdays/${id}`)
+            .then((res) => {console.log(res); navigate("/bdays")})
+            .catch((err) => console.log(err))
+    };
+
     return(
         <div>
             <form onSubmit={updateBdayHandler}>
@@ -67,6 +73,7 @@ const UpdateOne = (props) => {
                 </div>
                 <button>Confirm Edit</button>
             </form>
+            <button onClick={() => deleteBdayHandler(selectedBday._id)}>Delete</button>
             <Link to={"/bdays"}><button>Back to Dashboard</button></Link>
         </div>
     );
