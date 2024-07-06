@@ -7,7 +7,7 @@ const Dashboard = (props) => {
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/bdays")
-            .than(res => setAllBdays(res.data))
+            .then(res => setAllBdays(res.data))
             .catch(err => console.log(err))
     }, []);
 
@@ -53,32 +53,36 @@ const Dashboard = (props) => {
                     <label>Birth Day</label>
                     <input type="text" value={bdayDay} onChange={e => setBdayDay(e.target.value)}/>
                 </div>
-                <buttom style={{margin:"10px"}}>+Add a new Birthday</buttom>
+                <button style={{margin:"10px"}}>+Add a new Birthday</button>
             </form>
             <h3>Birthday List</h3>
             <table>
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Birthday</th>
-                    <th>Gifted?</th>
-                    <th>Gift Ideas</th>
-                    <th>Action</th>
-                </tr>
-                {
-                    allBdays.map( bday => {
-                        return(
-                            <tr key={bday._id}>
-                                <td>{bday.firstName}</td>
-                                <td>{bday.lastName}</td>
-                                <td>{bday.bdayMonth}/{bday.bdayDay}</td>
-                                <td>{bday.isGifted ? "Yes" : "No"}</td>
-                                <td>{bday.giftIdeas}</td>
-                                <td><Link to={`/bdays/update/${bday._id}`}><button>Edit</button></Link></td>
-                            </tr>
-                        )
-                    })
-                }
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Birthday</th>
+                        <th>Gifted?</th>
+                        <th>Gift Ideas</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        allBdays.map( bday => {
+                            return(
+                                <tr key={bday._id}>
+                                    <td>{bday.firstName}</td>
+                                    <td>{bday.lastName}</td>
+                                    <td>{bday.bdayMonth}/{bday.bdayDay}</td>
+                                    <td>{bday.isGifted ? "Yes" : "No"}</td>
+                                    <td>{bday.giftIdeas}</td>
+                                    <td><Link to={`/bdays/update/${bday._id}`}><button>Edit</button></Link></td>
+                                </tr>
+                            )
+                        })
+                    }
+                </tbody>
             </table>
         </div>
     );
